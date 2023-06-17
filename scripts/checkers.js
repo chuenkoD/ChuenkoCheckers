@@ -59,4 +59,75 @@ function ChangePlayer() {
     }
 }
 
+function calcMoves(color) {
+    let elements = document.getElementsByClassName(color);
+    for (const item of elements) {
+        console.log(`${item.id} ${item.parentElement.id}`);
+    }
+}
+
+function calcDistinctMoves(i, color) {
+    let fields = Array.from(document.getElementsByClassName('chess-field'));
+    Game.AvailableMoves = [];
+
+    let checker = document.getElementById(i).children[0];
+
+    if (fields.find(x => x.id == parseInt(i) - 9) != undefined
+        && fields.find(x => x.id == parseInt(i) - 9).style.backgroundColor != 'var(--field-background-white-old)') {
+
+        if ((color == 'white' && fields.find(x => x.id == parseInt(i) - 9).children.length != 0)
+            || color == 'black' || checker.classList.contains('crown')) {
+            Game.AvailableMoves.push(fields.find(x => x.id == parseInt(i) - 9));
+        }
+    }
+
+    if (fields.find(x => x.id == parseInt(i) - 7) != undefined
+        && fields.find(x => x.id == parseInt(i) - 7).style.backgroundColor != 'var(--field-background-white-old)') {
+
+        if ((color == 'white' && fields.find(x => x.id == parseInt(i) - 7).children.length != 0)
+            || color == 'black' || checker.classList.contains('crown')) {
+            Game.AvailableMoves.push(fields.find(x => x.id == parseInt(i) - 7));
+        }
+    }
+
+    if (fields.find(x => x.id == parseInt(i) + 7) != undefined
+        && fields.find(x => x.id == parseInt(i) + 7).style.backgroundColor != 'var(--field-background-white-old)') {
+
+        if ((color == 'black' && fields.find(x => x.id == parseInt(i) + 7).children.length != 0)
+            || color == 'white' || checker.classList.contains('crown')) {
+            Game.AvailableMoves.push(fields.find(x => x.id == parseInt(i) + 7));
+        }
+    }
+
+    if (fields.find(x => x.id == parseInt(i) + 9) != undefined
+        && fields.find(x => x.id == parseInt(i) + 9).style.backgroundColor != 'var(--field-background-white-old)') {
+
+        if ((color == 'black' && fields.find(x => x.id == parseInt(i) + 9).children.length != 0)
+            || color == 'white' || checker.classList.contains('crown')) {
+            Game.AvailableMoves.push(fields.find(x => x.id == parseInt(i) + 9));
+        }
+    }
+
+    for (const item of Game.AvailableMoves) {
+        let movement = document.createElement('div');
+        movement.className = 'movement';
+        if (!item.children.length != 0) {
+            item.appendChild(movement);
+        }
+    }
+}
+
+function displayBeatMoves(target) {
+    for (const item of Game.AvailableMoves) {
+        let movement = document.createElement('div');
+        movement.className = 'movement';
+
+        if (!item.children.length != 0 && Game.AvailableCheckers.find(x => x.fielddestination == item).checker == target) {
+            item.appendChild(movement);
+        }
+    }
+
+    console.log(Game.AvailableMoves);
+}
+
 InitGame();
