@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <h1>Chuenko Checkers</h1>  
-    </main>
-	<script src="index.js"></script>
-  </body>
+    <title>Checkers • ChuenkoD</title>
+    <link href="./public/styles.css" rel="stylesheet" />
+    <link rel="icon" href="./public/checkers.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="container">
+        <div id="chess">
+        </div>
+        <div id="log">
+            <p id="title"></p>
+            <div id="log-container">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./scripts/field.js"></script>
+<script src="./scripts/checkers.js"></script>
+
 </html>
