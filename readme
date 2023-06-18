@@ -1,1 +1,5 @@
-Курсовий проєкт студента Чуєнко Дмитра - шашки, побудовані на чистому js.
+Checkers Game
+This is a classic game of Checkers implemented in pure JavaScript. It allows two players to play against each other on a virtual checkers board.
+
+1. Clone or download the repository to your local machine.
+2. Open the index.html file in a web browser.
